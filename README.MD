@@ -1,5 +1,5 @@
 # About this Project
-This is an web application to perform sentiment analysis on Vietnamese multimedia.
+This is an web application powered by LLM.
 
 ## Contributors
 - Venomsnaker: Bùi Quốc Huy (L)

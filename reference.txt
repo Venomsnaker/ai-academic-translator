@@ -1,3 +1,0 @@
-Dataset
-[Text] - Vietnamese - Pos/Neg: https://github.com/congnghia0609/ntc-scv/tree/master/data?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExTFZHVTRTWHZDR2Nldk9oeAEeYLyGglRFygMZQY-5FaiRYzlTgj_b5tN9Otu0LQozkDi_O3A0rBP9c6akh4E_aem_zAWQuYTsa1W0xj3ho-cI_g
-[Text] - Vietnamese - Domain Curated: https://huggingface.co/datasets/VTSNLP/vietnamese_curated_dataset?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExTFZHVTRTWHZDR2Nldk9oeAEeJgnBKWPQO5xIUcI4Q3EkxWHd_AEAbh4ZQRSHs44JeyfVIrorZGQ2b-MRigc_aem_fhnxtMYHXoUFSknt375oLg
