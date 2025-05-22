@@ -1,5 +1,5 @@
 # About this Project
-This is an web application powered by LLM.
+A web application that translate English academic text into Vietnamese.
 
 ## Contributors
 - Venomsnaker: Bùi Quốc Huy (L)
