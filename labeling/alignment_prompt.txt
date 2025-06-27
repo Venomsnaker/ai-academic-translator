@@ -1,0 +1,11 @@
+English Texts: {en_text}
+
+Vietnamese Texts: {vi_text}
+
+Query: Align each English sentence with its corresponding Vietnamese sentence from the OCR-extracted texts.
+- Match each English sentence with the correct Vietnamese sentence based on meaning and order.
+- Clean up: Remove all citation markers and all math formulas and unknown/unreadable symbols.
+- Fix any spelling mistakes or OCR artifacts in both English and Vietnamese texts.
+
+Return only the aligned data in the following format, each pair should appear on its own line:
+english_sentence ---> vietnamese_sentence
