@@ -11,7 +11,7 @@ class OpenAIClient:
         self.model = model
         self.retries = retries
 
-    def generate_response(self, prompt: str, temeprature = 1, n = 5):
+    def generate_response(self, prompt: str, temeprature = 1):
         retries = 3
 
         for attempt in range(retries):
@@ -23,7 +23,6 @@ class OpenAIClient:
                         {'role': 'user', 'content': prompt}
                     ],
                     temperature=temeprature,
-                    n=n 
                 )
                 return [choice.message.content for choice in response.choices]
             except Exception as e:
