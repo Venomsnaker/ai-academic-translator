@@ -1,6 +1,9 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import gradio as gr
+import nltk
+nltk.download('punkt')
+from nltk.tokenize import sent_tokenize
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -9,16 +12,15 @@ model = AutoModelForSeq2SeqLM.from_pretrained(model_id)
 tokenizer = AutoTokenizer.from_pretrained("vinai/vinai-translate-en2vi-v2", src_lang="vi_VN")
 model.to(device)
 
-def translate(text, model=model, batch_size=16):
+def translate(text, model=model):
     if not text.strip():
         return "Please input your texts."
-
-    texts = [text]
-    translated_texts = []
-
-    for i in range(0, len(texts), batch_size):
-        batch = texts[i : i + batch_size]
-        input_ids = tokenizer(batch, padding=True, return_tensors="pt").to(device)
+    
+    sentences = sent_tokenize(text)
+    translated_sentences = []
+    
+    for sentence in sentences:
+        input_ids = tokenizer(sentence, return_tensors="pt").to(model.device)
         output_ids = model.generate(
             **input_ids,
             decoder_start_token_id=tokenizer.lang_code_to_id.get("vi_VN", None),
@@ -26,11 +28,10 @@ def translate(text, model=model, batch_size=16):
             num_beams=5,
             early_stopping=True
         )
-        vi = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
-        translated_texts.extend(vi)
-
-    return translated_texts[0]
-
+        translated_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+        translated_sentences.append(translated_text)
+    
+    return " ".join(translated_sentences)
 
 iface = gr.Interface(
     fn=translate,
