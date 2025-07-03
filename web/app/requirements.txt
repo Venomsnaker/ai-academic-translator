@@ -4,3 +4,5 @@ torch
 gradio
 sentencepiece
 protobuf
+PyMuPDF
+nltk
